@@ -11,6 +11,7 @@ from unittest.mock import patch, MagicMock
 # Add the backend directory to the path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'backend'))
 
+# Import the app after setting up the path
 from main import app
 
 
@@ -26,7 +27,7 @@ class TestBackendEndpoints(unittest.TestCase):
         """Clean up after each test method."""
         self.app_context.pop()
     
-    @patch('app.cache_dir')
+    @patch('api.cache.cache_dir')
     def test_get_cache_stats(self, mock_cache_dir):
         """Test the /api/cache/stats endpoint"""
         # Mock the cache_dir object
@@ -45,7 +46,7 @@ class TestBackendEndpoints(unittest.TestCase):
         self.assertIn('files', data)
         self.assertIn('last_updated', data)
     
-    @patch('app.cache_dir')
+    @patch('api.cache.cache_dir')
     def test_get_cache_files(self, mock_cache_dir):
         """Test the /api/cache/files endpoint"""
         # Mock the cache_dir object

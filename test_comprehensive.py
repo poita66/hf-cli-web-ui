@@ -26,7 +26,7 @@ class TestBackendEndpoints(unittest.TestCase):
         """Clean up after each test method."""
         self.app_context.pop()
     
-    @patch('app.cache_dir')
+    @patch('api.cache.cache_dir')
     def test_get_cache_stats(self, mock_cache_dir):
         """Test the /api/cache/stats endpoint"""
         # Mock the cache_dir object
@@ -45,7 +45,7 @@ class TestBackendEndpoints(unittest.TestCase):
         self.assertIn('files', data)
         self.assertIn('last_updated', data)
     
-    @patch('app.cache_dir')
+    @patch('api.cache.cache_dir')
     def test_get_cache_files_empty(self, mock_cache_dir):
         """Test the /api/cache/files endpoint with no files"""
         # Mock the cache_dir object with no repos
@@ -62,7 +62,7 @@ class TestBackendEndpoints(unittest.TestCase):
         self.assertEqual(len(data['files']), 0)
         self.assertEqual(data['total_count'], 0)
     
-    @patch('app.cache_dir')
+    @patch('api.cache.cache_dir')
     def test_get_cache_files_with_files(self, mock_cache_dir):
         """Test the /api/cache/files endpoint with files present"""
         # Mock a repo with revisions and files
@@ -111,7 +111,7 @@ class TestBackendEndpoints(unittest.TestCase):
         self.assertEqual(file_data['size'], 512)
         self.assertEqual(file_data['folder'], "/mock/repo/path")
     
-    @patch('app.cache_dir')
+    @patch('api.cache.cache_dir')
     def test_get_cache_files_multiple_files(self, mock_cache_dir):
         """Test the /api/cache/files endpoint with multiple files"""
         # Mock a repo with revisions and files
