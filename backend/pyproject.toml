@@ -1,6 +1,6 @@
 [project]
 name = "hf-cli-web-ui-backend"
-version = "0.0.4"
+version = "0.0.5"
 description = "Backend for Hugging Face CLI Cache Manager"
 authors = [{name = "Peter", email = "peter@example.com"}]
 dependencies = [
