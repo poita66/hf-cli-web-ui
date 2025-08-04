@@ -10,6 +10,15 @@ A web application for managing the Hugging Face cache, providing a user interfac
 - Clear the entire cache
 - Responsive web interface built with React/Vite
 
+## Versioning
+
+This project follows semantic versioning. The current version is **0.0.1**.
+
+Version information is maintained in:
+- `VERSION` - Main version file
+- `backend/pyproject.toml` - Backend version
+- `frontend/package.json` - Frontend version
+
 ## Architecture
 
 ### Backend
