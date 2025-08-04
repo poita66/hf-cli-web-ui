@@ -40,7 +40,49 @@ A web interface for managing the Hugging Face CLI cache, built with Flask (Pytho
 
 ## Setup Instructions
 
-### Backend Setup
+### Using run.sh script
+The project includes a convenient `run.sh` script that automates the setup and running of both backend and frontend:
+
+1. Make the script executable:
+   ```
+   chmod +x run.sh
+   ```
+
+2. Run the application:
+   ```
+   ./run.sh
+   ```
+
+This will:
+- Set up the Python virtual environment
+- Install backend dependencies
+- Install frontend dependencies
+- Start both backend and frontend servers
+
+### Using uv (recommended for faster installation)
+The project supports [uv](https://github.com/astral-sh/uv) for faster Python package installation.
+
+1. Install uv if you haven't already:
+   ```
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+
+2. Set up the environment with uv:
+   ```
+   cd backend
+   uv venv
+   source .venv/bin/activate
+   uv pip install -r requirements.txt
+   cd ..
+   ```
+
+3. Run the application with the run.sh script:
+   ```
+   ./run.sh
+   ```
+
+### Manual Setup
+#### Backend Setup
 1. Navigate to the backend directory:
    ```
    cd backend
@@ -56,7 +98,7 @@ A web interface for managing the Hugging Face CLI cache, built with Flask (Pytho
    python app.py
    ```
 
-### Frontend Setup
+#### Frontend Setup
 1. Navigate to the frontend directory:
    ```
    cd frontend
