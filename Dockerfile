@@ -26,4 +26,4 @@ RUN cd frontend && npm install && npm run build
 EXPOSE 5000
 
 # Run the application
-CMD ["python", "backend/app.py"]
+CMD ["python", "backend/main.py"]

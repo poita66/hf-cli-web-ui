@@ -59,7 +59,7 @@ Version information is maintained in:
 4. Run the backend:
    ```
    cd backend
-   python app.py
+   python main.py
    ```
 
 ## API Endpoints
