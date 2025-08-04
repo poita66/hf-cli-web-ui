@@ -1,11 +1,8 @@
 ---
-name: Build and Push Docker Image
+name: Build and Push Docker Image (Reusable)
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_call:
 
 jobs:
   build:

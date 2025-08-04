@@ -1,5 +1,5 @@
 ---
-name: Release with Docker Build 
+name: Release with Docker Build
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   docker-build:
-    uses: ./.github/workflows/docker-build.yml
+    uses: ./.github/workflows/docker-build-reusable.yml
 
   release:
     needs: docker-build
