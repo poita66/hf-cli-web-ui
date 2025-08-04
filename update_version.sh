@@ -21,3 +21,11 @@ sed -i "s/\"version\": .*/\"version\": \"$NEW_VERSION\",/" frontend/package.json
 echo "$NEW_VERSION" > VERSION
 
 echo "Version updated to $NEW_VERSION in all files"
+
+# Create and push git tag if we're on the main branch
+if git branch --show-current | grep -q "main"; then
+    echo "Creating git tag v$NEW_VERSION"
+    git tag -a "v$NEW_VERSION" -m "Version $NEW_VERSION release"
+    echo "Tag v$NEW_VERSION created. Push with: git push origin v$NEW_VERSION"
+fi
+

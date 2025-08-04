@@ -12,12 +12,26 @@ A web application for managing the Hugging Face cache, providing a user interfac
 
 ## Versioning
 
-This project follows semantic versioning. The current version is **0.0.1**.
+This project follows semantic versioning. The current version is **0.1.0**.
 
 Version information is maintained in:
 - `VERSION` - Main version file
 - `backend/pyproject.toml` - Backend version
 - `frontend/package.json` - Frontend version
+
+## Release Process
+
+Releases are created using Git tags. To create a new release:
+
+1. Ensure all changes are committed
+2. Update the version in `backend/pyproject.toml` and `frontend/package.json` 
+3. Create and push a tag:
+   ```bash
+   git tag -a v0.1.0 -m "Version 0.1.0 release"
+   git push origin v0.1.0
+   ```
+
+The GitHub Actions workflow will automatically create a release from the tag.
 
 ## Architecture
 
