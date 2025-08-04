@@ -216,22 +216,22 @@ def clear_cache():
         return jsonify({'error': str(e)}), 500
 
 @app.route('/api/cache/remove/<repo_path>', methods=['DELETE'])
-def remove_repository(repo_path):
+def remove_repository(repo_name):
     """Remove a specific repository from cache"""
     try:
         # Find the repository in the cache
         import shutil
         import os
         
-        # Convert repo_path to a proper path
-        repo_path = os.path.expanduser(repo_path)
+        # Convert repo_name to a proper path
+        repo_name = os.path.expanduser(repo_path)
         
         # Check if the path exists in the cache
         for repo in cache_dir.repos:
-            if str(repo.repo_path) == repo_path:
+            if str(repo.repo_name) == repo_path:
                 # Remove the repository directory
-                shutil.rmtree(repo_path)
-                return jsonify({'message': f'Repository {repo_path} removed successfully'})
+                shutil.rmtree(repo_name)
+                return jsonify({'message': f'Repository {repo_name} removed successfully'})
         
         return jsonify({'error': 'Repository not found in cache'}), 404
     except Exception as e:
