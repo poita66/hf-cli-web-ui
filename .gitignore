@@ -3,3 +3,4 @@ frontend/dist
 frontend/node_modules
 .venv
 .pytest_cache
+scripts/
