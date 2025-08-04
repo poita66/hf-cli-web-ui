@@ -85,3 +85,13 @@ For future LLM coding agent sessions, remember:
 - The frontend is built with Vite and serves from the dist directory
 - Static assets are served from the frontend's dist/assets directory
 - The backend uses the Hugging Face Hub library for cache management
+## Development Notes
+
+For future LLM coding agent sessions, remember:
+- The backend runs on port 5000 by default
+- The frontend is built with Vite and serves from the dist directory
+- Static assets are served from the frontend's dist/assets directory
+- The backend uses the Hugging Face Hub library for cache management
+- Commit early and often to maintain a clean history
+- Generate tests BEFORE implementing features
+- Update the README.md file when making changes that affect users or developers
