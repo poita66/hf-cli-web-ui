@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import RemoveRepositoryButton from '@/components/RemoveRepositoryButton';
-import { CacheFile, CacheStats, DownloadProgress } from '@/types/cache';
+import RemoveRepositoryButton from '../../components/RemoveRepositoryButton';
+import { CacheFile, CacheStats, DownloadProgress } from '../../types/cache';
 
 const App: React.FC = () => {
   const [cacheStats, setCacheStats] = useState<CacheStats | null>(null);
