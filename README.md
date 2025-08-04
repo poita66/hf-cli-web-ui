@@ -1,124 +1,74 @@
 # Hugging Face CLI Cache Manager
 
-A web interface for managing the Hugging Face CLI cache, built with Flask (Python) backend and React/TypeScript frontend.
+A web application for managing the Hugging Face cache, providing a user interface for viewing cache statistics, browsing cached files, downloading models, and clearing the cache.
 
 ## Features
 
-- View cache statistics (size, number of files, folders)
-- View cached files with metadata
-- Download models from Hugging Face Hub with progress tracking
+- View cache statistics (total size, number of files, etc.)
+- Browse cached files and their properties
+- Download models directly from the web UI
 - Clear the entire cache
-- Real-time progress updates for downloads
+- Responsive web interface built with React/Vite
 
-## Backend
+## Architecture
 
-### Technologies
-- Flask (Python web framework)
-- Hugging Face Hub SDK
-- Flask-CORS for cross-origin resource sharing
+### Backend
+- Built with Python Flask
+- Uses the Hugging Face Hub library to manage cache operations
+- Provides RESTful API endpoints for frontend interaction
+- Handles caching and file management logic
 
-### Endpoints
-- `GET /api/cache/stats` - Get cache statistics
-- `GET /api/cache/files` - Get list of cached files
-- `POST /api/cache/download` - Start downloading a model
-- `GET /api/cache/download/<download_id>/progress` - Get download progress
-- `DELETE /api/cache/download/<download_id>` - Cancel a download
-- `POST /api/cache/clear` - Clear the entire cache
+### Frontend
+- Built with React and Vite
+- Uses modern JavaScript/TypeScript
+- Responsive design for various screen sizes
+- Interacts with the backend API
 
-## Frontend
+## How to Run
 
-### Technologies
-- React (TypeScript)
-- Vite for development
-- Tailwind CSS for styling
+### Prerequisites
+- Python 3.8+
+- Node.js 16+
 
-### Components
-- Cache statistics dashboard
-- Download form
-- Active downloads tracker
-- Cached files table
-
-## Setup Instructions
-
-### Using run.sh script
-The project includes a convenient `run.sh` script that automates the setup and running of both backend and frontend:
-
-1. Make the script executable:
+### Setup
+1. Install Python dependencies:
    ```
-   chmod +x run.sh
+   pip install -r backend/requirements.txt
    ```
 
-2. Run the application:
-   ```
-   ./run.sh
-   ```
-
-This will:
-- Set up the Python virtual environment
-- Install backend dependencies
-- Install frontend dependencies
-- Start both backend and frontend servers
-
-### Using uv (recommended for faster installation)
-The project supports [uv](https://github.com/astral-sh/uv) for faster Python package installation.
-
-1. Install uv if you haven't already:
-   ```
-   curl -LsSf https://astral.sh/uv/install.sh | sh
-   ```
-
-2. Set up the environment with uv:
-   ```
-   cd backend
-   uv venv
-   source .venv/bin/activate
-   uv pip install -r requirements.txt
-   cd ..
-   ```
-
-3. Run the application with the run.sh script:
-   ```
-   ./run.sh
-   ```
-
-### Manual Setup
-#### Backend Setup
-1. Navigate to the backend directory:
-   ```
-   cd backend
-   ```
-
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-
-3. Run the Flask application:
-   ```
-   python app.py
-   ```
-
-#### Frontend Setup
-1. Navigate to the frontend directory:
+2. Install frontend dependencies:
    ```
    cd frontend
-   ```
-
-2. Install dependencies:
-   ```
    npm install
    ```
 
-3. Run the development server:
+3. Build the frontend:
    ```
-   npm run dev
+   npm run build
    ```
 
-The frontend will be available at http://localhost:3000 and will proxy API requests to the backend at http://localhost:5000.
+4. Run the backend:
+   ```
+   cd backend
+   python app.py
+   ```
+
+## API Endpoints
+
+- `GET /api/cache/stats` - Get cache statistics
+- `GET /api/cache/files` - Get list of cached files
+- `POST /api/cache/download` - Start a model download
+- `GET /api/cache/download/{id}/progress` - Get download progress
+- `DELETE /api/cache/download/{id}` - Cancel a download
+- `POST /api/cache/clear` - Clear the entire cache
 
 ## Development Notes
 
-- The backend uses threading to handle concurrent downloads
-- Progress tracking is implemented with a polling mechanism
-- The frontend uses React hooks for state management
-- All API calls are proxied through the Vite development server for easier development
+For future LLM coding agent sessions, remember:
+- The backend runs on port 5000 by default
+- The frontend is built with Vite and serves from the dist directory
+- Static assets are served from the frontend's dist/assets directory
+- The backend uses the Hugging Face Hub library for cache management
+- Commit early and often to maintain a clean history
+- Generate tests BEFORE implementing features
+- Update the README.md file when making changes that affect users or developers
