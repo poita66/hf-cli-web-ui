@@ -13,7 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read
+      contents: write
+      actions: write
     steps:
       -
         name: Checkout
@@ -56,8 +57,7 @@ jobs:
               repo: context.repo.repo,
               tag_name: tag,
               name: `Release ${version}`,
-              body: `Release of version ${version}\n\nSee the [CHANGELOG](${context.repo.owner}/${context.repo.repo}/blob/main/CHANGELOG.md) for details.`,
-              draft: false,
-              prerelease: false
+              body: `Release of version ${version}\n\nSee the [CHANGELOG](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/CHANGELOG.md) for details.`
             });
             console.log(`Created release: ${release.html_url}`);
+
